@@ -1,4 +1,5 @@
 import { fetchWeather, tempUnit } from "./fetcher";
+import { format } from "date-fns";
 
 const dayInWeek = document.querySelector(".day-in-week");
 const date = document.querySelector(".date");
@@ -18,7 +19,7 @@ export function displayData() {
 }
 
 function displayCurrentConditions() {
-  date.textContent = today.datetime;
+  date.textContent = convertDatetime(today.datetime);
   location.textContent = weatherData.address;
   condition.textContent = today.conditions;
 
@@ -34,4 +35,11 @@ function convertToCelcius(temp) {
   } else {
     return Math.round(temp);
   }
+}
+
+//Please insert RAW datetime from the weather api
+function convertDatetime(datetime) {
+  const [yy, mm, dd] = datetime.split("-");
+  const dayoftoday = new Date(yy, mm - 1, dd);
+  return format(dayoftoday, "EEEE, do MMMM");
 }
