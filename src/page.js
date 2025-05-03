@@ -1,4 +1,4 @@
-import { fetchWeather, tempUnit } from "./fetcher";
+import { tempUnit } from "./fetcher";
 import { format } from "date-fns";
 
 const dayInWeek = document.querySelector(".day-in-week");
@@ -11,26 +11,32 @@ const feelsLike = document.querySelector(".feels-like");
 const maxTemperature = document.querySelector(".max-temperature");
 const minTemperature = document.querySelector(".min-temperature");
 
-const weatherData = await fetchWeather();
-const today = weatherData.days[0];
-
-export function displayData() {
-  displayCurrentConditions();
+export function displayData(weatherData) {
+  displayCurrentConditions(weatherData);
 }
 
-function displayCurrentConditions() {
-  date.textContent = convertDatetime(today.datetime);
-  location.textContent = weatherData.address;
-  condition.textContent = today.conditions;
+function displayCurrentConditions(weatherData) {
+  //Data at this moment
+  const currentData = weatherData.currentConditions;
 
-  temperature.textContent = convertToCelcius(today.temp);
-  feelsLike.textContent = convertToCelcius(today.feelslike);
-  maxTemperature.textContent = convertToCelcius(today.tempmax);
-  minTemperature.textContent = convertToCelcius(today.tempmin);
+  //Data throughout the day
+  const todayData = weatherData.days[0];
+
+  //Date and Location
+  date.textContent = convertDatetime(todayData.datetime);
+  location.textContent = weatherData.resolvedAddress;
+
+  //Weather Data
+  condition.textContent = currentData.conditions;
+  temperature.textContent = convertToCelcius(currentData.temp);
+  feelsLike.textContent = convertToCelcius(currentData.feelslike);
+
+  maxTemperature.textContent = convertToCelcius(todayData.tempmax);
+  minTemperature.textContent = convertToCelcius(todayData.tempmin);
 }
 
 function convertToCelcius(temp) {
-  if (tempUnit === "celcius") {
+  if (tempUnit === "C") {
     return Math.round((temp - 32) / 1.8);
   } else {
     return Math.round(temp);

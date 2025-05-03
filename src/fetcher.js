@@ -20,10 +20,9 @@
     
 */
 
-let location = "Toronto";
-export let tempUnit = "celcius";
+export let tempUnit = "C";
 
-export async function fetchWeather() {
+export async function fetchWeather(location) {
   const key = "8UT7GXF3M33L57GR7VV2CNKCP";
   const contentType = "json";
   let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=us&key=${key}&contentType=${contentType}`;
