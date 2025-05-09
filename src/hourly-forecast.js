@@ -8,9 +8,18 @@ export function getHourlyForecast(data) {
 
   return hours.map((hour, index) => {
     return {
-      time: index,
+      time: convertHourFormat(index),
       conditions: hour.conditions,
       temperature: hour.temp,
     };
   });
+}
+
+//Convert hour format from 24 to 12
+function convertHourFormat(hour) {
+  if (hour > 12) {
+    return hour - 12 + "PM";
+  }
+
+  return hour + "AM";
 }
