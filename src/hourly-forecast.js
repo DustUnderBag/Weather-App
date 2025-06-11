@@ -4,39 +4,44 @@ import { convertToCelcius } from "./page";
 export function getHourlyForecast(data) {
   const hourNow = getHours(new Date());
   console.log("Hour: " + hourNow);
-  const hours = data.days[0].hours;
-  console.log(hours);
 
-  const formattedHours = hours.map((hour, index) => {
-    return {
-      time: convertHourFormat(index),
-      conditions: hour.conditions,
-      temperature: hour.temp,
+  const hours = [];
+  let day = 0;
+  let hour = hourNow;
+
+  for (let i = 0; i <= 24; i++) {
+    if (hour > 23) {
+      hour = 0;
+      day++;
+    }
+    const hourForecast = data.days[day].hours[hour];
+
+    const simplifiedHourForecast = {
+      time: convertHourFormat(hour),
+      conditions: hourForecast.conditions,
+      temp: hourForecast.temp,
     };
-  });
 
-  generateHourlyCards(formattedHours);
-}
+    hours.push(simplifiedHourForecast);
 
-//Convert hour format from 24 to 12
-function convertHourFormat(hour) {
-  if (hour > 12) {
-    return hour - 12 + "PM";
+    hour++;
   }
 
-  return hour + "AM";
+  populateHourlyForecast(hours);
 }
 
-function generateHourlyCards(hours) {
+function populateHourlyForecast(hours) {
   const container = document.querySelector(".hourly-forecasts");
 
-  hours.forEach((data) => {
-    const card = makeHourlyCard(data);
+  container.textContent = "";
+
+  hours.forEach((hour) => {
+    const card = makeHourlyCard(hour);
     container.appendChild(card);
   });
 }
 
-function makeHourlyCard(data) {
+function makeHourlyCard(hour) {
   const card = document.createElement("div");
 
   const condition = document.createElement("div");
@@ -52,9 +57,18 @@ function makeHourlyCard(data) {
   card.appendChild(condition);
   card.appendChild(time);
 
-  temp.textContent = convertToCelcius(data.temperature);
-  condition.textContent = data.conditions;
-  time.textContent = data.time;
+  temp.textContent = convertToCelcius(hour.temp);
+  condition.textContent = hour.conditions;
+  time.textContent = hour.time;
 
   return card;
+}
+
+//Convert hour format from 24 to 12
+function convertHourFormat(hour) {
+  if (hour > 12) {
+    return hour - 12 + "PM";
+  }
+
+  return hour + "AM";
 }
