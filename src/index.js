@@ -1,4 +1,6 @@
 import "./reset.css";
+import "./style.css";
+
 import { fetchWeather } from "./fetcher";
 import { displayData } from "./page";
 import { getHourlyForecast } from "./hourly-forecast";
@@ -7,6 +9,8 @@ console.log("Script entry point working");
 
 const search = document.querySelector("#search-bar");
 search.addEventListener("keydown", search_handler);
+
+fetchAndDisplayWeather();
 
 function fetchAndDisplayWeather() {
   const location = search.value || "Toronto";
@@ -18,8 +22,6 @@ function fetchAndDisplayWeather() {
     console.log(getHourlyForecast(weatherData));
   });
 }
-
-fetchAndDisplayWeather();
 
 console.log(search);
 function search_handler(e) {
