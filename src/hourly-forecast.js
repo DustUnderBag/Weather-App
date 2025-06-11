@@ -1,4 +1,5 @@
 import { getHours } from "date-fns";
+import { convertToCelcius } from "./page";
 
 export function getHourlyForecast(data) {
   const hourNow = getHours(new Date());
@@ -51,7 +52,7 @@ function makeHourlyCard(data) {
   card.appendChild(condition);
   card.appendChild(time);
 
-  temp.textContent = data.temperature;
+  temp.textContent = convertToCelcius(data.temperature);
   condition.textContent = data.conditions;
   time.textContent = data.time;
 

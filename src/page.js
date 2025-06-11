@@ -35,11 +35,11 @@ function displayCurrentConditions(weatherData) {
   minTemperature.textContent = convertToCelcius(todayData.tempmin);
 }
 
-function convertToCelcius(temp) {
+export function convertToCelcius(temp) {
   if (tempUnit === "C") {
-    return Math.round((temp - 32) / 1.8);
+    return Math.round((temp - 32) / 1.8) + "°C";
   } else {
-    return Math.round(temp);
+    return Math.round(temp) + "°F";
   }
 }
 
