@@ -1,23 +1,24 @@
-import { getHours } from "date-fns";
+import { getHours, addHours } from "date-fns";
 import { convertToCelcius } from "./page";
 
 export function getHourlyForecast(data) {
-  const hourNow = getHours(new Date());
-  console.log("Hour: " + hourNow);
-
   const hours = [];
   let day = 0;
-  let hour = hourNow;
+  let hour = getCurrentLocalHour(data.tzoffset);
 
+  //Obtain the next 24 hourly forecast.
   for (let i = 0; i <= 24; i++) {
     if (hour > 23) {
       hour = 0;
       day++;
     }
+    console.log(hour);
+    //The current iterated hour forecast.
     const hourForecast = data.days[day].hours[hour];
 
+    //Simplification - only keeps time, conditions and temp.
     const simplifiedHourForecast = {
-      time: convertHourFormat(hour),
+      time: hourForecast.datetime,
       conditions: hourForecast.conditions,
       temp: hourForecast.temp,
     };
@@ -26,6 +27,8 @@ export function getHourlyForecast(data) {
 
     hour++;
   }
+
+  console.log(hours);
 
   populateHourlyForecast(hours);
 }
@@ -59,16 +62,33 @@ function makeHourlyCard(hour) {
 
   temp.textContent = convertToCelcius(hour.temp);
   condition.textContent = hour.conditions;
-  time.textContent = hour.time;
+
+  time.textContent = toHourDisplay(hour.time);
 
   return card;
 }
 
-//Convert hour format from 24 to 12
-function convertHourFormat(hour) {
-  if (hour > 12) {
-    return hour - 12 + "PM";
+//Convert raw time to readable 12-hour format
+//e.g 13:00:00 --> 1PM
+function toHourDisplay(hour) {
+  const hourDisplay = Number(hour.slice(0, 2));
+
+  if (hourDisplay === 12) return "12PM";
+
+  if (hourDisplay >= 13) {
+    return hourDisplay - 12 + "PM";
   }
 
-  return hour + "AM";
+  return hourDisplay + "AM";
+}
+
+function getCurrentLocalHour(timezoneOffset) {
+  //UTC is the standard time, without timezone.
+  const currentUTCHour = new Date().getUTCHours();
+
+  const localHour = Math.floor(Math.abs(currentUTCHour + timezoneOffset));
+  if (localHour >= 24) localHour - 24;
+  console.log("UTC: " + currentUTCHour, " Local time: " + localHour);
+
+  return localHour;
 }

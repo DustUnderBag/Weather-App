@@ -19,7 +19,7 @@ function fetchAndDisplayWeather() {
     displayData(weatherData);
 
     //Hourly conditions of the day
-    console.log(getHourlyForecast(weatherData));
+    getHourlyForecast(weatherData);
   });
 }
 
