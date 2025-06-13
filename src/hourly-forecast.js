@@ -1,10 +1,11 @@
-import { getHours, addHours } from "date-fns";
 import { convertToCelcius } from "./page";
+import { getHours } from "date-fns";
 
 export function getHourlyForecast(data) {
   const hours = [];
   let day = 0;
-  let hour = getCurrentLocalHour(data.tzoffset);
+  let hour = getCurrentLocalHour(data.timezone);
+  console.log(data.timezone);
 
   //Obtain the next 24 hourly forecast.
   for (let i = 0; i <= 24; i++) {
@@ -12,7 +13,7 @@ export function getHourlyForecast(data) {
       hour = 0;
       day++;
     }
-    console.log(hour);
+
     //The current iterated hour forecast.
     const hourForecast = data.days[day].hours[hour];
 
@@ -82,13 +83,9 @@ function toHourDisplay(hour) {
   return hourDisplay + "AM";
 }
 
-function getCurrentLocalHour(timezoneOffset) {
-  //UTC is the standard time, without timezone.
-  const currentUTCHour = new Date().getUTCHours();
-
-  const localHour = Math.floor(Math.abs(currentUTCHour + timezoneOffset));
-  if (localHour >= 24) localHour - 24;
-  console.log("UTC: " + currentUTCHour, " Local time: " + localHour);
-
-  return localHour;
+//Get local hour in 24-hour format
+function getCurrentLocalHour(timezone) {
+  //toLocaleString returns date string using given timezone.
+  let localTime = new Date().toLocaleString("en-US", { timeZone: timezone });
+  return getHours(localTime);
 }

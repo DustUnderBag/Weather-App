@@ -1,7 +1,6 @@
 import { tempUnit } from "./fetcher";
 import { format } from "date-fns";
 
-const dayInWeek = document.querySelector(".day-in-week");
 const date = document.querySelector(".date");
 const location = document.querySelector(".location");
 const condition = document.querySelector(".condition");
