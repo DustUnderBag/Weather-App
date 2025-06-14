@@ -6,6 +6,7 @@
     Min & max temperature
     Feels like temperature
     Description of the day
+    May include wind speed, humidity, visibility.
     
     Hourly forecast of today
     - List hours from NOW to the next 24 hours e.g. Now(1am) to next 1am

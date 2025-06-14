@@ -1,4 +1,8 @@
 .hourly-card {
   border: 1px solid black;
-  width: 100px;
+  padding: 1rem 1.2rem;
+}
+
+.hourly-forecasts {
+  display: flex;
 }

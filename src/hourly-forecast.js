@@ -9,6 +9,7 @@ export function getHourlyForecast(data) {
 
   //Obtain the next 24 hourly forecast.
   for (let i = 0; i <= 24; i++) {
+    //Jump to the next day
     if (hour > 23) {
       hour = 0;
       day++;
@@ -53,18 +54,17 @@ function makeHourlyCard(hour) {
   const time = document.createElement("div");
 
   card.classList.add("hourly-card");
-  temp.classList.add("temperature");
-  condition.classList.add("condition");
   time.classList.add("time");
+  condition.classList.add("condition");
+  temp.classList.add("temperature");
 
-  card.appendChild(temp);
-  card.appendChild(condition);
   card.appendChild(time);
-
-  temp.textContent = convertToCelcius(hour.temp);
-  condition.textContent = hour.conditions;
+  card.appendChild(condition);
+  card.appendChild(temp);
 
   time.textContent = toHourDisplay(hour.time);
+  condition.textContent = hour.conditions;
+  temp.textContent = convertToCelcius(hour.temp);
 
   return card;
 }
@@ -83,7 +83,7 @@ function toHourDisplay(hour) {
   return hourDisplay + "AM";
 }
 
-//Get local hour in 24-hour format
+//Returns local hour 0-24, without unit
 function getCurrentLocalHour(timezone) {
   //toLocaleString returns date string using given timezone.
   let localTime = new Date().toLocaleString("en-US", { timeZone: timezone });
