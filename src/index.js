@@ -4,6 +4,7 @@ import "./style.css";
 import { fetchWeather } from "./fetcher";
 import { displayData } from "./page";
 import { getHourlyForecast } from "./hourly-forecast";
+import { getDailyForecasts } from "./daily-forecasts";
 
 console.log("Script entry point working");
 
@@ -20,10 +21,12 @@ function fetchAndDisplayWeather() {
 
     //Hourly conditions of the day
     getHourlyForecast(weatherData);
+
+    //Daily conditions of the week
+    getDailyForecasts(weatherData);
   });
 }
 
-console.log(search);
 function search_handler(e) {
   if (e.code === "Enter" || e.code === "NumpadEnter") {
     e.preventDefault();

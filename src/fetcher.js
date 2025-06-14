@@ -16,8 +16,11 @@
     Daily Forecast
     - On the top, display description of the next few days.
     - List the following 9 days.(from today to 9 days later).
-    - weather condition
-    - min & max temperature
+    
+    Daily Card
+    - Day in the week
+    - weather condition, if condition is rain, show probability of rain(preciprop)
+    - temperature
     
 */
 

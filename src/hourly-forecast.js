@@ -30,8 +30,6 @@ export function getHourlyForecast(data) {
     hour++;
   }
 
-  console.log(hours);
-
   populateHourlyForecast(hours);
 }
 
