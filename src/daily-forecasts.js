@@ -1,8 +1,9 @@
 import { format } from "date-fns";
 import { convertToCelcius } from "./page";
-import { fetchWeather, fetchWeatherIcon } from "./fetcher";
+import { fetchWeatherIcon } from "./fetcher";
 
 export function getDailyForecasts(data) {
+  document.querySelector("#week-description").textContent = data.description;
   const days = [];
 
   let day = 0;
@@ -29,7 +30,7 @@ export function getDailyForecasts(data) {
 }
 
 function populateDailyForecast(days) {
-  const container = document.querySelector(".daily-forecasts");
+  const container = document.querySelector("#daily-cards");
 
   container.textContent = "";
 

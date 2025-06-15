@@ -1,19 +1,59 @@
+:root {
+  --bright-bg-clr: #ffffff;
+  --grey-bg-clr: #f7f6f9;
+
+  --section-padding: 50px;
+}
+
 body {
-  background-color: #183d43;
-  color: white;
-  height: 100%;
-  padding: 1rem 1rem;
+  background-color: var(--grey-bg-clr);
+  color: rgb(21, 21, 21);
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: minmax(300px, 450px) 1fr;
+  grid-template-rows: 1fr 1.5fr;
+  grid-template-areas:
+    "current-conditions forecasts"
+    "current-conditions today-highlights";
+}
+
+h2 {
+  color: #595959;
+}
+
+.current-conditions {
+  background-color: var(--bright-bg-clr);
+  grid-area: current-conditions;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: var(--section-padding);
+}
+
+.forecasts {
+  grid-area: forecasts;
+
+  padding: var(--section-padding);
+}
+
+.today-highlights {
+  grid-area: today-highlights;
+
+  padding: var(--section-padding);
 }
 
 .hourly-forecasts,
 .daily-forecasts {
-  width: 800px;
   overflow: auto;
   white-space: nowrap;
 }
 
 .hourly-card {
-  width: 120px;
+  background-color: var(--bright-bg-clr);
+  width: 8%;
+  height: 150px;
 
   display: inline-flex;
   flex-direction: column;
@@ -21,16 +61,24 @@ body {
   align-items: center;
   text-align: center;
 
-  padding: 10px 10px;
+  border-radius: 1rem;
+  padding: 10px;
+
+  & + .hourly-card {
+    margin-left: 16px;
+  }
 }
 
-.hourly-card > img.weather-icon {
+.hourly-card > img.weather-icon,
+.daily-card > img.weather-icon {
   aspect-ratio: 1/1;
   height: 50px;
 }
 
 .daily-card {
-  width: 120px;
+  background-color: var(--bright-bg-clr);
+  width: 8%;
+  height: 150px;
 
   text-align: center;
 
@@ -39,6 +87,10 @@ body {
   align-items: center;
   justify-content: center;
 
-  border: 1px solid black;
-  padding: 0.4rem 1rem;
+  border-radius: 1rem;
+  padding: 10px;
+
+  & + .daily-card {
+    margin-left: 16px;
+  }
 }

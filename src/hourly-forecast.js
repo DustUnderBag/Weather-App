@@ -35,7 +35,7 @@ export function getHourlyForecast(data) {
 }
 
 function populateHourlyForecast(hours) {
-  const container = document.querySelector(".hourly-forecasts");
+  const container = document.querySelector("#hourly-cards");
 
   container.textContent = "";
 

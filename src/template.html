@@ -6,34 +6,52 @@
     <title>Template</title>
   </head>
   <body>
-    <form action="#">
-      <input type="text" id="search-bar" placeholder="Search for city..." />
-    </form>
-    <div class="date"></div>
-    <div class="location"></div>
-    <div class="condition"></div>
-    <div>
-      <span class="temperature"></span>
-      <span class="temperature-unit"></span>
-    </div>
-    <div>
-      Feels Like:
-      <span class="feels-like"></span>
-      <span class="temperature-unit"></span>
-    </div>
-    <div>
-      <div>
-        <span class="max-temperature"></span>
-        <span class="temperature-unit"></span>
-      </div>
-      <div>
-        <span class="min-temperature"></span>
-        <span class="temperature-unit"></span>
+    <div class="current-conditions">
+      <form action="#">
+        <input type="text" id="search-bar" placeholder="Search for city..." />
+      </form>
+
+      <div class="date"></div>
+      <div class="location"></div>
+
+      <img id="current-weather-icon" alt="weather-icon" />
+
+      <div class="condition"></div>
+
+      <div class="all-temperatures">
+        <div>
+          <span class="temperature"></span>
+          <span class="temperature-unit"></span>
+        </div>
+        <div>
+          <div>
+            <span class="max-temperature"></span>
+          </div>
+          <div>
+            <span class="min-temperature"></span>
+          </div>
+        </div>
+        <div>
+          Feels Like:
+          <span class="feels-like"></span>
+        </div>
       </div>
     </div>
 
-    <div class="hourly-forecasts"></div>
+    <div class="forecasts">
+      <div class="hourly-forecasts">
+        <span id="today-description"></span>
+        <div id="hourly-cards"></div>
+      </div>
+      <div class="daily-forecasts">
+        <h1>10-DAY FORECAST</h1>
+        <h2 id="week-description"></h2>
+        <div id="daily-cards"></div>
+      </div>
+    </div>
 
-    <div class="daily-forecasts"></div>
+    <div class="today-highlights">
+      <h1>Today's Highlights</h1>
+    </div>
   </body>
 </html>

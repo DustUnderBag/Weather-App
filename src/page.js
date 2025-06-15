@@ -1,8 +1,9 @@
-import { tempUnit } from "./fetcher";
+import { tempUnit, fetchWeatherIcon } from "./fetcher";
 import { format } from "date-fns";
 
 const date = document.querySelector(".date");
 const location = document.querySelector(".location");
+const weatherIcon = document.querySelector("img#current-weather-icon");
 const condition = document.querySelector(".condition");
 
 const temperature = document.querySelector(".temperature");
@@ -24,6 +25,9 @@ function displayCurrentConditions(weatherData) {
   //Date and Location
   date.textContent = convertDatetime(todayData.datetime);
   location.textContent = weatherData.resolvedAddress;
+
+  //Weather icon
+  fetchWeatherIcon(currentData.icon).then((icon) => (weatherIcon.src = icon));
 
   //Weather Data
   condition.textContent = currentData.conditions;
