@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import { convertToCelcius } from "./page";
+import { fetchWeather, fetchWeatherIcon } from "./fetcher";
 
 export function getDailyForecasts(data) {
   const days = [];
@@ -16,14 +17,15 @@ export function getDailyForecasts(data) {
       conditions: forecast.conditions,
       precipprob: forecast.precipprob,
       temp: forecast.temp,
+      icon: forecast.icon,
     };
 
     days.push(simplifiedForecast);
 
     day++;
   }
-  console.log(days);
   populateDailyForecast(days);
+  console.log(days);
 }
 
 function populateDailyForecast(days) {
@@ -41,13 +43,19 @@ function makeDailyCard(day) {
   const card = document.createElement("div");
 
   const dayInWeek = document.createElement("div");
+
   const condition = document.createElement("div");
+  const weatherIcon = document.createElement("img");
   const precipprob = document.createElement("div");
+  condition.appendChild(weatherIcon);
+  condition.appendChild(precipprob);
+
   const temp = document.createElement("div");
 
   card.classList.add("daily-card");
   dayInWeek.classList.add("daily-day-in-week");
   condition.classList.add("daily-condition");
+  weatherIcon.classList.add("weather-icon");
   precipprob.classList.add("daily-precipprob");
   temp.classList.add("daily-temperature");
 
@@ -56,11 +64,9 @@ function makeDailyCard(day) {
   card.appendChild(temp);
 
   const [yr, mm, dd] = day.datetime.split("-");
-  console.log(new Date(yr, mm - 1, dd));
   dayInWeek.textContent = format(new Date(yr, mm - 1, dd), "E");
 
-  condition.textContent = day.conditions;
-  condition.appendChild(precipprob);
+  fetchWeatherIcon(day.icon).then((icon) => (weatherIcon.src = icon));
 
   precipprob.textContent = day.precipprob + "%";
   temp.textContent = convertToCelcius(day.temp);

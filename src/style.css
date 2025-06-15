@@ -1,9 +1,12 @@
 body {
+  background-color: #183d43;
+  color: white;
   height: 100%;
   padding: 1rem 1rem;
 }
 
-.hourly-forecasts {
+.hourly-forecasts,
+.daily-forecasts {
   width: 800px;
   overflow: auto;
   white-space: nowrap;
@@ -27,8 +30,9 @@ body {
 }
 
 .daily-card {
-  text-align: center;
   width: 120px;
+
+  text-align: center;
 
   display: inline-flex;
   flex-direction: column;

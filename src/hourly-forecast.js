@@ -1,11 +1,11 @@
 import { convertToCelcius } from "./page";
 import { getHours } from "date-fns";
+import { fetchWeatherIcon } from "./fetcher";
 
 export function getHourlyForecast(data) {
   const hours = [];
   let day = 0;
   let hour = getCurrentLocalHour(data.timezone);
-  console.log(data.timezone);
 
   //Obtain the next 24 hourly forecast.
   for (let i = 0; i <= 24; i++) {
@@ -89,9 +89,4 @@ function getCurrentLocalHour(timezone) {
   //toLocaleString returns date string using given timezone.
   let localTime = new Date().toLocaleString("en-US", { timeZone: timezone });
   return getHours(localTime);
-}
-
-async function fetchWeatherIcon(iconName) {
-  const icon = await import(`./icon-set/${iconName}.svg`);
-  return icon.default;
 }

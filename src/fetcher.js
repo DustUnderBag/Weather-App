@@ -38,3 +38,8 @@ export async function fetchWeather(location) {
   console.log(json);
   return json;
 }
+
+export async function fetchWeatherIcon(iconName) {
+  const icon = await import(`./icon-set/${iconName}.svg`);
+  return icon.default;
+}
