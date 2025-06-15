@@ -1,1 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.06 73.32"><defs><style>.cls-1{fill:#cae3f6;}.cls-2,.cls-3,.cls-4{fill:none;stroke-miterlimit:10;}.cls-2,.cls-3{stroke:#000;}.cls-2{stroke-width:2.5px;}.cls-3{stroke-linecap:round;stroke-width:3px;}.cls-4{stroke:#0a0b0b;stroke-width:4px;}</style></defs><title>rain-snowAsset 166colored</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M61.63,41.86H9.79c-2.17,0-5-1.71-5.88-3.57a9.42,9.42,0,0,1-.4-9.5,9.74,9.74,0,0,1,9.32-5c1.57.08,1.89-.49,2.08-1.78A23.81,23.81,0,0,1,34.51,2.38l.12,0A23.88,23.88,0,0,1,50.5,5.73c.47.28.93.6,1.39.94A24.41,24.41,0,0,1,58.33,14l.74,1.27"/><path class="cls-1" d="M36.93,28.78a10.24,10.24,0,0,1,8.18-8.63,12.09,12.09,0,0,1,2-.16,10.57,10.57,0,0,1,7.15,2.77,10,10,0,0,1,2.84,4.73"/><path class="cls-1" d="M50.93,20.63c3-4.62,9.9-6.32,15.41-5.19a12.53,12.53,0,0,1,10,9.64c.7,3,.92,4.2,3.27,5.83,3.34,2.32,3.11,7.5.4,9.94a4.23,4.23,0,0,1-2.59,1H59.47"/><line class="cls-1" x1="65.26" y1="41.85" x2="70.63" y2="41.85"/><polyline class="cls-2" points="12.91 70.81 18.27 65.15 23.55 70.64"/><polyline class="cls-2" points="23.55 48.67 18.19 54.32 12.91 48.83"/><line class="cls-2" x1="18.19" y1="45.97" x2="18.19" y2="73.32"/><polyline class="cls-2" points="29.39 64.97 23.74 59.6 29.23 54.32"/><polyline class="cls-2" points="7.25 54.32 12.91 59.69 7.42 64.97"/><line class="cls-2" x1="4.55" y1="59.69" x2="31.91" y2="59.69"/><line class="cls-3" x1="67.9" y1="64.01" x2="61.69" y2="69.89"/><line class="cls-3" x1="46.79" y1="64.01" x2="40.59" y2="69.89"/><line class="cls-3" x1="67.9" y1="51.22" x2="61.69" y2="57.1"/><line class="cls-3" x1="46.79" y1="51.22" x2="40.59" y2="57.1"/><path class="cls-4" d="M61.52,41.94H9.42c-2.18,0-5.08-1.72-5.91-3.58A9.49,9.49,0,0,1,3.1,28.8a9.79,9.79,0,0,1,9.38-5c1.57.08,1.89-.49,2.09-1.79A23.9,23.9,0,0,1,34.26,2.26l.12,0a24.08,24.08,0,0,1,16,3.38c.47.29.94.61,1.4,1a24.49,24.49,0,0,1,6.46,7.32L59,15.16"/><path class="cls-4" d="M36.7,28.79a10.31,10.31,0,0,1,8.22-8.67A12.28,12.28,0,0,1,47,20a10.64,10.64,0,0,1,7.19,2.79A10.08,10.08,0,0,1,57,27.5"/><path class="cls-4" d="M50.77,20.61c3-4.65,9.95-6.36,15.49-5.22a12.58,12.58,0,0,1,10,9.69c.7,3.06.93,4.22,3.29,5.86,3.36,2.32,3.12,7.53.4,10a4.26,4.26,0,0,1-2.6,1H74"/><line class="cls-4" x1="65.18" y1="41.93" x2="70.57" y2="41.93"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
+	<defs>
+		<linearGradient id="a" x1="22.56" y1="21.96" x2="39.2" y2="50.8" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#f3f7fe"/>
+			<stop offset="0.45" stop-color="#f3f7fe"/>
+			<stop offset="1" stop-color="#deeafb"/>
+		</linearGradient>
+		<linearGradient id="b" x1="23.12" y1="43.48" x2="24.88" y2="46.52" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#86c3db"/>
+			<stop offset="0.45" stop-color="#86c3db"/>
+			<stop offset="1" stop-color="#5eafcf"/>
+		</linearGradient>
+		<linearGradient id="c" x1="22.67" y1="42.69" x2="25.33" y2="47.31" xlink:href="#b"/>
+		<linearGradient id="d" x1="37.12" y1="43.48" x2="38.88" y2="46.52" xlink:href="#b"/>
+		<linearGradient id="e" x1="36.67" y1="42.69" x2="39.33" y2="47.31" xlink:href="#b"/>
+		<linearGradient id="f" x1="23.31" y1="44.3" x2="24.69" y2="46.7" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#4286ee"/>
+			<stop offset="0.45" stop-color="#4286ee"/>
+			<stop offset="1" stop-color="#0950bc"/>
+		</linearGradient>
+		<linearGradient id="g" x1="30.31" y1="44.3" x2="31.69" y2="46.7" xlink:href="#f"/>
+		<linearGradient id="h" x1="37.31" y1="44.3" x2="38.69" y2="46.7" xlink:href="#f"/>
+	</defs>
+	<path d="M46.5,31.5l-.32,0a10.49,10.49,0,0,0-19.11-8,7,7,0,0,0-10.57,6,7.21,7.21,0,0,0,.1,1.14A7.5,7.5,0,0,0,18,45.5a4.19,4.19,0,0,0,.5,0v0h28a7,7,0,0,0,0-14Z" stroke="#e6effc" stroke-miterlimit="10" stroke-width="0.5" fill="url(#a)"/>
+	<g>
+		<circle cx="24" cy="45" r="1.25" fill="none" stroke-miterlimit="10" stroke="url(#b)"/>
+		<path d="M26.17,46.25l-1.09-.63m-2.16-1.24-1.09-.63M24,42.5v1.25m0,3.75V46.25m-1.08-.63-1.09.63m4.34-2.5-1.09.63" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke="url(#c)"/>
+		<animateTransform attributeName="transform" type="translate" additive="sum" values="1 -6; -1 12" begin="-2s" dur="4s" repeatCount="indefinite"/>
+		<animateTransform attributeName="transform" type="rotate" additive="sum" values="0 24 45; 360 24 45" dur="9s" repeatCount="indefinite"/>
+		<animate attributeName="opacity" values="0;1;1;1;0" begin="-2s" dur="4s" repeatCount="indefinite"/>
+	</g>
+	<g>
+		<circle cx="38" cy="45" r="1.25" fill="none" stroke-miterlimit="10" stroke="url(#d)"/>
+		<path d="M40.17,46.25l-1.09-.63m-2.16-1.24-1.09-.63M38,42.5v1.25m0,3.75V46.25m-1.08-.63-1.09.63m4.34-2.5-1.09.63" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke="url(#e)"/>
+		<animateTransform attributeName="transform" type="translate" additive="sum" values="1 -6; -1 12" begin="-1s" dur="4s" repeatCount="indefinite"/>
+		<animateTransform attributeName="transform" type="rotate" additive="sum" values="0 38 45; 360 38 45" dur="9s" repeatCount="indefinite"/>
+		<animate attributeName="opacity" values="0;1;1;1;0" begin="-1s" dur="4s" repeatCount="indefinite"/>
+	</g>
+	<line x1="24.08" y1="45.01" x2="23.92" y2="45.99" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="url(#f)">
+		<animateTransform attributeName="transform" type="translate" values="1 -5; -2 10" dur="1.5s" repeatCount="indefinite"/>
+		<animate attributeName="opacity" values="0;1;1;0" dur="1.5s" repeatCount="indefinite"/>
+	</line>
+	<line x1="31.08" y1="45.01" x2="30.92" y2="45.99" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="url(#g)">
+		<animateTransform attributeName="transform" type="translate" begin="-0.5s" values="1 -5; -2 10" dur="1.5s" repeatCount="indefinite"/>
+		<animate attributeName="opacity" begin="-0.5s" values="0;1;1;0" dur="1.5s" repeatCount="indefinite"/>
+	</line>
+	<line x1="38.08" y1="45.01" x2="37.92" y2="45.99" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="url(#h)">
+		<animateTransform attributeName="transform" type="translate" begin="-1s" values="1 -5; -2 10" dur="1.5s" repeatCount="indefinite"/>
+		<animate attributeName="opacity" begin="-1s" values="0;1;1;0" dur="1.5s" repeatCount="indefinite"/>
+	</line>
+</svg>

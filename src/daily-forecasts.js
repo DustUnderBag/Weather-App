@@ -47,9 +47,6 @@ function makeDailyCard(day) {
   const condition = document.createElement("div");
   const weatherIcon = document.createElement("img");
   const precipprob = document.createElement("div");
-  condition.appendChild(weatherIcon);
-  condition.appendChild(precipprob);
-
   const temp = document.createElement("div");
 
   card.classList.add("daily-card");
@@ -62,6 +59,8 @@ function makeDailyCard(day) {
   card.appendChild(dayInWeek);
   card.appendChild(condition);
   card.appendChild(temp);
+  condition.appendChild(weatherIcon);
+  condition.appendChild(precipprob);
 
   const [yr, mm, dd] = day.datetime.split("-");
   dayInWeek.textContent = format(new Date(yr, mm - 1, dd), "E");
