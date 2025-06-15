@@ -23,6 +23,7 @@ export function getHourlyForecast(data) {
       time: hourForecast.datetime,
       conditions: hourForecast.conditions,
       temp: hourForecast.temp,
+      icon: hourForecast.icon,
     };
 
     hours.push(simplifiedHourForecast);
@@ -47,21 +48,23 @@ function populateHourlyForecast(hours) {
 function makeHourlyCard(hour) {
   const card = document.createElement("div");
 
-  const condition = document.createElement("div");
+  const weatherIcon = document.createElement("img");
   const temp = document.createElement("div");
   const time = document.createElement("div");
 
   card.classList.add("hourly-card");
   time.classList.add("time");
-  condition.classList.add("condition");
+  weatherIcon.classList.add("weather-icon");
   temp.classList.add("temperature");
 
   card.appendChild(time);
-  card.appendChild(condition);
+  card.appendChild(weatherIcon);
   card.appendChild(temp);
 
   time.textContent = toHourDisplay(hour.time);
-  condition.textContent = hour.conditions;
+
+  fetchWeatherIcon(hour.icon).then((icon) => (weatherIcon.src = icon));
+
   temp.textContent = convertToCelcius(hour.temp);
 
   return card;
@@ -86,4 +89,9 @@ function getCurrentLocalHour(timezone) {
   //toLocaleString returns date string using given timezone.
   let localTime = new Date().toLocaleString("en-US", { timeZone: timezone });
   return getHours(localTime);
+}
+
+async function fetchWeatherIcon(iconName) {
+  const icon = await import(`./icon-set/${iconName}.svg`);
+  return icon.default;
 }
