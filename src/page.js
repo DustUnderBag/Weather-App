@@ -1,10 +1,11 @@
 import { tempUnit, fetchWeatherIcon } from "./fetcher";
 import { format } from "date-fns";
 
-const date = document.querySelector(".date");
-const location = document.querySelector(".location");
+const date = document.querySelector("#date");
+const location = document.querySelector("#location");
 const weatherIcon = document.querySelector("img#current-weather-icon");
-const condition = document.querySelector(".condition");
+const condition = document.querySelector("#current-condition");
+const precipprob = document.querySelector("#current-precipprob > span");
 
 const temperature = document.querySelector(".temperature");
 const feelsLike = document.querySelector(".feels-like");
@@ -24,7 +25,7 @@ function displayCurrentConditions(weatherData) {
 
   //Date and Location
   date.textContent = convertDatetime(todayData.datetime);
-  location.textContent = weatherData.resolvedAddress;
+  location.textContent = weatherData.address;
 
   //Weather icon
   fetchWeatherIcon(currentData.icon).then((icon) => (weatherIcon.src = icon));
@@ -33,9 +34,10 @@ function displayCurrentConditions(weatherData) {
   condition.textContent = currentData.conditions;
   temperature.textContent = convertToCelcius(currentData.temp);
   feelsLike.textContent = convertToCelcius(currentData.feelslike);
+  precipprob.textContent = currentData.precipprob + "%";
 
-  maxTemperature.textContent = convertToCelcius(todayData.tempmax);
-  minTemperature.textContent = convertToCelcius(todayData.tempmin);
+  maxTemperature.textContent = "H: " + convertToCelcius(todayData.tempmax);
+  minTemperature.textContent = "L: " + convertToCelcius(todayData.tempmin);
 }
 
 export function convertToCelcius(temp) {

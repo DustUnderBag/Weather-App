@@ -2,29 +2,33 @@
   --bright-bg-clr: #ffffff;
   --grey-bg-clr: #f7f6f9;
 
-  --section-padding: 50px;
-}
+  --section-padding: 50px 40px;
 
-body {
-  background-color: var(--grey-bg-clr);
-  color: rgb(21, 21, 21);
-  height: 100vh;
-
-  display: grid;
-  grid-template-columns: minmax(300px, 450px) 1fr;
-  grid-template-rows: 1fr 1.5fr;
-  grid-template-areas:
-    "current-conditions forecasts"
-    "current-conditions today-highlights";
+  --primary-font-clr: #292929;
+  --secondary-font-clr: #595959;
 }
 
 h2 {
-  color: #595959;
+  color: var(--secondary-font-clr);
 }
 
-.current-conditions {
+/*Grid Layout of whole page*/
+body {
+  background-color: var(--grey-bg-clr);
+  color: var(--primary-font-clr);
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: minmax(15%, 400px) 1fr;
+  grid-template-rows: 1fr 1.5fr;
+  grid-template-areas:
+    "current-weather forecasts"
+    "current-weather today-highlights";
+}
+
+.current-weather {
   background-color: var(--bright-bg-clr);
-  grid-area: current-conditions;
+  grid-area: current-weather;
 
   display: flex;
   flex-direction: column;
@@ -42,6 +46,116 @@ h2 {
   grid-area: today-highlights;
 
   padding: var(--section-padding);
+}
+
+/*Search field*/
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+form#search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: center;
+  gap: 6px;
+}
+
+/*Search label*/
+label[for="search-bar"] {
+  aspect-ratio: 1/1;
+  background-image: url("./img/search.svg");
+  background-size: 100%;
+}
+
+#search-bar {
+  appearance: none;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+
+  padding: 4px 6px;
+  font-size: 1.1rem;
+
+  &:focus {
+    box-shadow: 0 0 3px 3px #00000019;
+  }
+}
+
+#current-weather-icon {
+  margin: -10px;
+}
+
+#current-condition {
+  margin-top: -20px;
+  font-size: 1.4rem;
+  color: var(--secondary-font-clr);
+}
+
+.all-temperatures {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  column-gap: 10px;
+}
+
+.all-temperatures .temperature {
+  font-size: 2.8rem;
+  font-weight: 800;
+}
+
+#min-max-temperatures {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.all-temperatures .max-temperature,
+.all-temperatures .min-temperature {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.min-temperature {
+  color: var(--secondary-font-clr);
+}
+
+#feels-like-box {
+  font-size: 1.2rem;
+  grid-column: 1 / 3;
+}
+
+#date {
+  margin-top: 40px;
+  font-size: 1.2rem;
+  line-height: 1;
+
+  color: var(--secondary-font-clr);
+}
+
+#location {
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+#current-precipprob {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 3rem auto auto;
+  align-items: center;
+  justify-content: start;
+  gap: 5px;
+  font-size: 1.2rem;
+}
+
+#current-precipprob > img {
+  aspect-ratio: 1 / 1;
+  margin: -4px;
 }
 
 .hourly-forecasts,

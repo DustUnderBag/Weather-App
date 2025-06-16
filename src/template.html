@@ -6,35 +6,38 @@
     <title>Template</title>
   </head>
   <body>
-    <div class="current-conditions">
-      <form action="#">
-        <input type="text" id="search-bar" placeholder="Search for city..." />
+    <div class="current-weather">
+      <form action="#" id="search">
+        <label for="search-bar"></label>
+        <input type="search" id="search-bar" placeholder="Search for city..." />
       </form>
 
-      <div class="date"></div>
-      <div class="location"></div>
+      <div id="date"></div>
+      <div id="location"></div>
 
       <img id="current-weather-icon" alt="weather-icon" />
 
-      <div class="condition"></div>
+      <div id="current-condition"></div>
 
       <div class="all-temperatures">
-        <div>
-          <span class="temperature"></span>
-          <span class="temperature-unit"></span>
+        <div class="temperature"></div>
+        <div id="min-max-temperatures">
+          <div class="max-temperature"></div>
+          <div class="min-temperature"></div>
         </div>
-        <div>
-          <div>
-            <span class="max-temperature"></span>
-          </div>
-          <div>
-            <span class="min-temperature"></span>
-          </div>
-        </div>
-        <div>
+        <div id="feels-like-box">
           Feels Like:
           <span class="feels-like"></span>
         </div>
+      </div>
+
+      <div id="current-precipprob">
+        <img
+          src="./img/raindrops.svg"
+          alt="Raindrops icon representing probibility of precipitation"
+        />
+        Rain -
+        <span></span>
       </div>
     </div>
 
