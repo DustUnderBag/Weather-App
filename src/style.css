@@ -2,14 +2,18 @@
   --bright-bg-clr: #ffffff;
   --grey-bg-clr: #f7f6f9;
 
-  --section-padding: 50px 40px;
+  --section-padding: 50px 50px;
 
   --primary-font-clr: #292929;
   --secondary-font-clr: #595959;
+
+  --section-width: 70%;
 }
 
-h2 {
+h2.description {
   color: var(--secondary-font-clr);
+  line-height: 1;
+  margin-bottom: 24px;
 }
 
 /*Grid Layout of whole page*/
@@ -34,6 +38,7 @@ body {
   flex-direction: column;
 
   padding: var(--section-padding);
+  padding-inline: 40px;
 }
 
 .forecasts {
@@ -158,6 +163,12 @@ label[for="search-bar"] {
   margin: -4px;
 }
 
+#unit-switch {
+  width: fit-content;
+  margin-right: calc(100% - var(--section-width));
+  margin-left: auto;
+}
+
 #unit-switch input[type="radio"] {
   appearance: none;
 }
@@ -190,6 +201,11 @@ label[for="search-bar"] {
 .daily-forecasts {
   overflow: auto;
   white-space: nowrap;
+  margin-top: 24px;
+}
+
+.hourly-forecasts {
+  width: var(--section-width);
 }
 
 .hourly-card {

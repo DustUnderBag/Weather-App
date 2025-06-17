@@ -3,6 +3,9 @@ import { getHours } from "date-fns";
 import { fetchWeatherIcon, weatherData } from "./fetcher";
 
 export function getHourlyForecast() {
+  document.querySelector("#today-description").textContent =
+    weatherData.days[0].description;
+
   const hours = [];
   let day = 0;
   let hour = getCurrentLocalHour(weatherData.timezone);
