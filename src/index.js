@@ -1,7 +1,7 @@
 import "./reset.css";
 import "./style.css";
 
-import { fetchWeather } from "./fetcher";
+import { fetchWeather, tempUnit, updateTempUnit } from "./fetcher";
 import { displayData } from "./page";
 import { getHourlyForecast } from "./hourly-forecast";
 import { getDailyForecasts } from "./daily-forecasts";
@@ -15,16 +15,18 @@ fetchAndDisplayWeather();
 
 function fetchAndDisplayWeather() {
   const location = search.value || "Toronto";
-  fetchWeather(location).then((weatherData) => {
-    //Current conditions
-    displayData(weatherData);
+  fetchWeather(location).then(visualizeData);
+}
 
-    //Hourly conditions of the day
-    getHourlyForecast(weatherData);
+function visualizeData() {
+  //Current conditions
+  displayData();
 
-    //Daily conditions of the week
-    getDailyForecasts(weatherData);
-  });
+  //Hourly conditions of the day
+  getHourlyForecast();
+
+  //Daily conditions of the week
+  getDailyForecasts();
 }
 
 function search_handler(e) {
@@ -33,3 +35,16 @@ function search_handler(e) {
     fetchAndDisplayWeather();
   }
 }
+
+const tempUnitToggles = document.querySelectorAll(
+  "#unit-switch input[type='radio']",
+);
+tempUnitToggles.forEach((toggle) =>
+  toggle.addEventListener("click", () => {
+    //Determine if unit is changed, don't do anything if unit isn't changed.
+    if (toggle.value !== tempUnit) {
+      updateTempUnit();
+      visualizeData();
+    }
+  }),
+);

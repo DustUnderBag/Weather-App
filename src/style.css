@@ -19,7 +19,7 @@ body {
   height: 100vh;
 
   display: grid;
-  grid-template-columns: minmax(15%, 400px) 1fr;
+  grid-template-columns: minmax(290px, 450px) 1fr;
   grid-template-rows: 1fr 1.5fr;
   grid-template-areas:
     "current-weather forecasts"
@@ -156,6 +156,34 @@ label[for="search-bar"] {
 #current-precipprob > img {
   aspect-ratio: 1 / 1;
   margin: -4px;
+}
+
+#unit-switch input[type="radio"] {
+  appearance: none;
+}
+
+#unit-switch label {
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+  width: 45px;
+  height: 45px;
+  margin-right: 2px;
+  padding: auto;
+  font-size: 1.4rem;
+
+  border-radius: 100%;
+
+  &:has(input[type="radio"]:checked) {
+    background-color: #292929;
+    color: var(--grey-bg-clr);
+  }
+
+  &:has(input[type="radio"]:hover) {
+    border: 3px solid #292929;
+  }
 }
 
 .hourly-forecasts,

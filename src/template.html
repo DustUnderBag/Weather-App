@@ -42,6 +42,18 @@
     </div>
 
     <div class="forecasts">
+      <div id="unit-switch">
+        <label for="temp-C">
+          <span>°C</span>
+          <input type="radio" name="temp-unit" id="temp-C" value="C" checked />
+        </label>
+
+        <label for="temp-F">
+          <span>°F</span>
+          <input type="radio" name="temp-unit" id="temp-F" value="F" />
+        </label>
+      </div>
+
       <div class="hourly-forecasts">
         <span id="today-description"></span>
         <div id="hourly-cards"></div>

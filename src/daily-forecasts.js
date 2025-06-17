@@ -1,16 +1,17 @@
 import { format } from "date-fns";
 import { convertToCelcius } from "./page";
-import { fetchWeatherIcon } from "./fetcher";
+import { weatherData, fetchWeatherIcon } from "./fetcher";
 
-export function getDailyForecasts(data) {
-  document.querySelector("#week-description").textContent = data.description;
+export function getDailyForecasts() {
+  document.querySelector("#week-description").textContent =
+    weatherData.description;
   const days = [];
 
   let day = 0;
 
   //Obtain next 10 daily forecasts(incld. today).
   while (day < 10) {
-    const forecast = data.days[day];
+    const forecast = weatherData.days[day];
 
     //Simplification - only keeps datetime, conditions, precipprob, temp.
     const simplifiedForecast = {

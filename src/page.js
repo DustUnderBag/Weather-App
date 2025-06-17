@@ -1,4 +1,4 @@
-import { tempUnit, fetchWeatherIcon } from "./fetcher";
+import { weatherData, tempUnit, fetchWeatherIcon } from "./fetcher";
 import { format } from "date-fns";
 
 const date = document.querySelector("#date");
@@ -12,11 +12,11 @@ const feelsLike = document.querySelector(".feels-like");
 const maxTemperature = document.querySelector(".max-temperature");
 const minTemperature = document.querySelector(".min-temperature");
 
-export function displayData(weatherData) {
-  displayCurrentConditions(weatherData);
+export function displayData() {
+  displayCurrentConditions();
 }
 
-function displayCurrentConditions(weatherData) {
+function displayCurrentConditions() {
   //Data at this moment
   const currentData = weatherData.currentConditions;
 

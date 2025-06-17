@@ -25,6 +25,7 @@
 */
 
 export let tempUnit = "C";
+export let weatherData;
 
 export async function fetchWeather(location) {
   const key = "8UT7GXF3M33L57GR7VV2CNKCP";
@@ -36,10 +37,23 @@ export async function fetchWeather(location) {
   });
   const json = await response.json();
   console.log(json);
-  return json;
+  weatherData = json;
 }
 
 export async function fetchWeatherIcon(iconName) {
   const icon = await import(`./icon-set/${iconName}.svg`);
   return icon.default;
+}
+
+export function updateTempUnit() {
+  const chosenTempUnit = document.querySelector(
+    "#unit-switch input[type='radio']:checked",
+  );
+
+  //Determine if unit is changed.
+  const unitChanged = chosenTempUnit.value !== tempUnit;
+
+  tempUnit = chosenTempUnit.value;
+
+  return unitChanged;
 }

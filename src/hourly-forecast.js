@@ -1,11 +1,11 @@
 import { convertToCelcius } from "./page";
 import { getHours } from "date-fns";
-import { fetchWeatherIcon } from "./fetcher";
+import { fetchWeatherIcon, weatherData } from "./fetcher";
 
-export function getHourlyForecast(data) {
+export function getHourlyForecast() {
   const hours = [];
   let day = 0;
-  let hour = getCurrentLocalHour(data.timezone);
+  let hour = getCurrentLocalHour(weatherData.timezone);
 
   //Obtain the next 24 hourly forecast.
   for (let i = 0; i <= 24; i++) {
@@ -16,7 +16,7 @@ export function getHourlyForecast(data) {
     }
 
     //The current iterated hour forecast.
-    const hourForecast = data.days[day].hours[hour];
+    const hourForecast = weatherData.days[day].hours[hour];
 
     //Simplification - only keeps time, conditions and temp.
     const simplifiedHourForecast = {
