@@ -6,7 +6,7 @@
     Min & max temperature
     Feels like temperature
     Description of the day
-    May include wind speed, humidity, visibility.
+
     
     Hourly forecast of today
     - List hours from NOW to the next 24 hours e.g. Now(1am) to next 1am
@@ -21,6 +21,14 @@
     - Day in the week
     - weather condition, if condition is rain, show probability of rain(preciprop)
     - temperature
+
+    Highlights 6 cards
+    - UV Index  has (0-2 = low, 3-5 = Moderate, 6-7 = high, 8-10 = Very high, 11 = Extreme)
+    - Wind speed & Wind direction has
+    - Sunrise and Sunset  has
+    - Humidity  has
+    - Visibility  has
+    - Air Quality
     
 */
 
@@ -30,7 +38,7 @@ export let weatherData;
 export async function fetchWeather(location) {
   const key = "8UT7GXF3M33L57GR7VV2CNKCP";
   const contentType = "json";
-  let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=us&key=${key}&contentType=${contentType}`;
+  let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=us&key=${key}&contentType=${contentType}&elements=%2Baqius`;
 
   const response = await fetch(url, {
     method: "GET",
@@ -49,11 +57,5 @@ export function updateTempUnit() {
   const chosenTempUnit = document.querySelector(
     "#unit-switch input[type='radio']:checked",
   );
-
-  //Determine if unit is changed.
-  const unitChanged = chosenTempUnit.value !== tempUnit;
-
   tempUnit = chosenTempUnit.value;
-
-  return unitChanged;
 }

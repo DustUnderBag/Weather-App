@@ -5,6 +5,7 @@ import { fetchWeather, tempUnit, updateTempUnit } from "./fetcher";
 import { displayData } from "./page";
 import { getHourlyForecast } from "./hourly-forecast";
 import { getDailyForecasts } from "./daily-forecasts";
+import { displayHighlights } from "./highlights";
 
 console.log("Script entry point working");
 
@@ -27,6 +28,8 @@ function visualizeData() {
 
   //Daily conditions of the week
   getDailyForecasts();
+
+  displayHighlights();
 }
 
 function search_handler(e) {
