@@ -22,7 +22,7 @@ export function displayHighlights() {
   windSpeed.textContent = data.windspeed;
 
   const windDirection = document.querySelector("#wind-direction > span");
-  windDirection.textContent = data.winddir + "°";
+  windDirection.textContent = getWindDirection(data.winddir);
 
   const sunrise = document.querySelector("#sunrise > span");
   sunrise.textContent = data.sunrise;
@@ -44,4 +44,27 @@ function getUvBarRotateDeg(uvIndex) {
   if (uvIndex > 10) uvIndex = 10;
   const deg = (uvIndex / 10) * 180;
   return deg + "deg";
+}
+
+function getWindDirection(deg) {
+  const directions = [
+    "N",
+    "NNE",
+    "NE",
+    "ENE",
+    "E",
+    "ESE",
+    "SE",
+    "SSE",
+    "S",
+    "SSW",
+    "SW",
+    "WSW",
+    "W",
+    "WNW",
+    "NW",
+    "NNW",
+  ];
+  const index = Math.round(((deg %= 360) < 0 ? deg + 360 : deg) / 22.5) % 16;
+  return directions[index];
 }
