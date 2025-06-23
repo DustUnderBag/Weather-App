@@ -269,8 +269,8 @@ label[for="search-bar"] {
 
 .today-highlights > .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 400px 400px 400px;
+  grid-template-rows: 300px 300px;
   gap: 1.6rem;
 }
 
@@ -279,13 +279,32 @@ label[for="search-bar"] {
   background-color: var(--bright-bg-clr);
   border-radius: var(--card-border-radius);
 
-  display: grid;
-  grid-template-rows: auto 1fr;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .info-card h2 {
   color: var(--secondary-font-clr);
+}
+
+.info-data {
+  margin-top: auto;
+}
+
+.info-data span.number {
+  font-size: 3.2rem;
+  color: var(--primary-font-clr);
+  font-weight: 600;
+}
+
+.info-data span.unit {
+  font-size: 1.8rem;
+}
+
+.info-card .sub-data {
+  margin-top: 0;
+  margin-bottom: auto;
+  font-size: 1.6rem;
 }
 
 .info-card img {
@@ -294,16 +313,18 @@ label[for="search-bar"] {
 }
 
 .info-card span {
-  font-size: 2.4rem;
+  font-size: inherit;
 }
 
 #uv-chart {
-  --section-width: 380px;
+  --section-width: 350px;
   --section-height: calc(var(--section-width) / 2);
   --width-offset: 65px;
   --bar-width: calc(var(--section-width) - var(--width-offset));
   --bar-height: calc(var(--section-height) - var(--width-offset) / 2);
   --animation-duration: 0.1s;
+
+  --border-width: 40px;
 
   position: relative;
   width: var(--section-width);
@@ -329,7 +350,7 @@ label[for="search-bar"] {
   content: "";
   width: var(--bar-width);
   height: var(--bar-height);
-  border: 45px rgba(0, 0, 0, 0.089) solid;
+  border: var(--border-width) rgba(0, 0, 0, 0.089) solid;
   border-bottom: none;
   border-top-left-radius: 1000px;
   border-top-right-radius: 1000px;
@@ -351,7 +372,7 @@ label[for="search-bar"] {
   width: var(--bar-width);
   height: var(--bar-height);
 
-  border: 45px solid;
+  border: var(--border-width) solid;
   border-top: none;
   border-bottom-left-radius: var(--bar-height);
   border-bottom-right-radius: var(--bar-height);
@@ -417,4 +438,20 @@ label[for="search-bar"] {
     top: -6px;
     left: 5px;
   }
+}
+
+#wind-direction {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: start;
+}
+
+#wind-direction > .info-icon {
+  background-image: url(./info-icons/compass.svg);
+  background-size: 120%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 50px;
 }

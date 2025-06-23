@@ -18,10 +18,10 @@ export function displayHighlights() {
   const rotateDeg = getUvBarRotateDeg(data.uvindex);
   uvBar.style.transform = `rotate(${rotateDeg})`;
 
-  const windSpeed = document.querySelector("#wind-speed");
-  windSpeed.textContent = data.windspeed + "km/h";
+  const windSpeed = document.querySelector("#wind-speed .number");
+  windSpeed.textContent = data.windspeed;
 
-  const windDirection = document.querySelector("#wind-direction");
+  const windDirection = document.querySelector("#wind-direction > span");
   windDirection.textContent = data.winddir + "°";
 
   const sunrise = document.querySelector("#sunrise > span");
@@ -30,13 +30,13 @@ export function displayHighlights() {
   const sunset = document.querySelector("#sunset > span");
   sunset.textContent = data.sunset;
 
-  const humidity = document.querySelector("#humidity > span");
-  humidity.textContent = data.humidity + "%";
+  const humidity = document.querySelector("#humidity .number");
+  humidity.textContent = data.humidity;
 
-  const visibility = document.querySelector("span#visibility");
-  visibility.textContent = data.visibility + "mi";
+  const visibility = document.querySelector("#visibility .number");
+  visibility.textContent = data.visibility;
 
-  const airQuality = document.querySelector("span#air-quality");
+  const airQuality = document.querySelector("#air-quality .number");
   airQuality.textContent = data.aqius;
 }
 
