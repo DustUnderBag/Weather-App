@@ -42,6 +42,8 @@ export function displayHighlights() {
 
   const airQuality = document.querySelector("#air-quality .number");
   airQuality.textContent = data.aqius;
+  const airQualityLevel = document.querySelector("#air-quality + .sub-data");
+  airQualityLevel.textContent = getAirQualityLevel(data.aqius);
 }
 
 function getUvBarRotateDeg(uvIndex) {
@@ -74,9 +76,9 @@ function getWindDirection(deg) {
 }
 
 function getHumidityComfortLevel(index) {
-  if (index < 40) return "Too dry";
+  if (index < 40) return "Too Dry";
   if (index > 40 && index < 60) return "Comfortable";
-  else return "Too humid";
+  else return "Too Humid";
 }
 
 function getVisibilityLevel(dist) {
@@ -90,12 +92,21 @@ function getVisibilityLevel(dist) {
   } else if (dist > 1.7) {
     return "Haze";
   } else if (dist > 1.2) {
-    return "Thin fog";
+    return "Thin Fog";
   } else if (dist > 0.5) {
-    return "Light fog";
+    return "Light Fog";
   } else if (dist > 0.3) {
-    return "Moderate fog";
+    return "Moderate Fog";
   } else {
-    return "Thick fog";
+    return "Thick Fog";
   }
+}
+
+function getAirQualityLevel(index) {
+  if (index <= 50) return "Low Health Risk";
+  if (index > 50 && index <= 100) return "Moderate";
+  if (index > 100 && index <= 150) return "Unhealthy for Sensitive Groups";
+  if (index > 150 && index <= 200) return "Unhealthy";
+  if (index > 200 && index <= 300) return "Very Unhealthy";
+  else return "Hazardous";
 }
