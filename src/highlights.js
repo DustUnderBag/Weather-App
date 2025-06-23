@@ -32,9 +32,13 @@ export function displayHighlights() {
 
   const humidity = document.querySelector("#humidity .number");
   humidity.textContent = data.humidity;
+  const humidityLevel = document.querySelector("#humidity + .sub-data");
+  humidityLevel.textContent = getHumidityComfortLevel(data.humidity);
 
   const visibility = document.querySelector("#visibility .number");
   visibility.textContent = data.visibility;
+  const visibilityLevel = document.querySelector("#visibility + .sub-data");
+  visibilityLevel.textContent = getVisibilityLevel(data.visibility);
 
   const airQuality = document.querySelector("#air-quality .number");
   airQuality.textContent = data.aqius;
@@ -67,4 +71,31 @@ function getWindDirection(deg) {
   ];
   const index = Math.round(((deg %= 360) < 0 ? deg + 360 : deg) / 22.5) % 16;
   return directions[index];
+}
+
+function getHumidityComfortLevel(index) {
+  if (index < 40) return "Too dry";
+  if (index > 40 && index < 60) return "Comfortable";
+  else return "Too humid";
+}
+
+function getVisibilityLevel(dist) {
+  //Rate in miles
+  if (dist > 7) {
+    return "Very clear";
+  } else if (dist > 6.2) {
+    return "Clear";
+  } else if (dist > 3.1) {
+    return "Light haze";
+  } else if (dist > 1.7) {
+    return "Haze";
+  } else if (dist > 1.2) {
+    return "Thin fog";
+  } else if (dist > 0.5) {
+    return "Light fog";
+  } else if (dist > 0.3) {
+    return "Moderate fog";
+  } else {
+    return "Thick fog";
+  }
 }
