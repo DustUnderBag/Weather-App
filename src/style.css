@@ -317,7 +317,7 @@ label[for="search-bar"] {
 }
 
 #uv-chart {
-  --section-width: 350px;
+  --section-width: 330px;
   --section-height: calc(var(--section-width) / 2);
   --width-offset: 65px;
   --bar-width: calc(var(--section-width) - var(--width-offset));
@@ -335,6 +335,13 @@ label[for="search-bar"] {
   overflow: hidden;
 
   justify-self: center;
+}
+
+#uv-chart + .sub-data {
+  text-align: center;
+  margin: 0;
+  margin-top: 24px;
+  line-height: 1;
 }
 
 #uv-chart::before,

@@ -1,13 +1,5 @@
 import { weatherData } from "./fetcher";
 
-/* 
-  UV Index Rating
-  0-2 = low, 
-  3-5 = Moderate, 
-  6-7 = high, 
-  8-10 = Very high, 
-  11 = Extreme
-*/
 export function displayHighlights() {
   const data = weatherData.currentConditions;
 
@@ -17,6 +9,8 @@ export function displayHighlights() {
   const uvBar = document.querySelector("#uv-chart #uv-bar");
   const rotateDeg = getUvBarRotateDeg(data.uvindex);
   uvBar.style.transform = `rotate(${rotateDeg})`;
+  const uvLevel = document.querySelector("#uv-chart + .sub-data");
+  uvLevel.textContent = getUVLevel(data.uvindex);
 
   const windSpeed = document.querySelector("#wind-speed .number");
   windSpeed.textContent = data.windspeed;
@@ -109,4 +103,20 @@ function getAirQualityLevel(index) {
   if (index > 150 && index <= 200) return "Unhealthy";
   if (index > 200 && index <= 300) return "Very Unhealthy";
   else return "Hazardous";
+}
+
+function getUVLevel(index) {
+  /* 
+  UV Index Rating
+  0-2 = low, 
+  3-5 = Moderate, 
+  6-7 = high, 
+  8-9 = Very high, 
+  10 = Extreme
+  */
+  if (index <= 2) return "Low";
+  if (index >= 3 && index <= 5) return "Moderate";
+  if (index >= 6 && index <= 7) return "High";
+  if (index >= 8 && index <= 9) return "Very High";
+  else return "Extreme";
 }
