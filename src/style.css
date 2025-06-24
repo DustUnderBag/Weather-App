@@ -7,8 +7,6 @@
   --primary-font-clr: #292929;
   --secondary-font-clr: #595959;
 
-  --section-width: 70%;
-
   --card-border-radius: 1rem;
 }
 
@@ -22,37 +20,27 @@ h2.description {
 body {
   background-color: var(--grey-bg-clr);
   color: var(--primary-font-clr);
-  height: 100vh;
+  width: 100vw;
+  min-height: 100vh;
 
   display: grid;
-  grid-template-columns: minmax(290px, 450px) 1fr;
-  grid-template-rows: 1fr 1.5fr;
-  grid-template-areas:
-    "current-weather forecasts"
-    "current-weather today-highlights";
+  grid-template-columns: minmax(300px, 15vw) 1fr;
 }
 
 .current-weather {
   background-color: var(--bright-bg-clr);
-  grid-area: current-weather;
 
   display: flex;
   flex-direction: column;
 
-  padding: var(--section-padding);
+  padding-top: 50px;
   padding-inline: 40px;
 }
 
-.forecasts {
-  grid-area: forecasts;
-
-  padding: var(--section-padding);
-}
-
-.today-highlights {
-  grid-area: today-highlights;
-
-  padding: var(--section-padding);
+.detailed-forecasts {
+  width: 1300px;
+  padding-top: 50px;
+  padding-left: 50px;
 }
 
 /*Search field*/
@@ -146,7 +134,7 @@ label[for="search-bar"] {
 }
 
 #location {
-  font-size: 3rem;
+  font-size: 2.2rem;
   line-height: 1.1;
 }
 
@@ -167,7 +155,6 @@ label[for="search-bar"] {
 
 #unit-switch {
   width: fit-content;
-  margin-right: calc(100% - var(--section-width));
   margin-left: auto;
 }
 
@@ -204,6 +191,7 @@ label[for="search-bar"] {
 .today-highlights {
   & > h1 {
     font-size: 1.8rem;
+    margin-top: 24px;
   }
 }
 
@@ -211,65 +199,40 @@ label[for="search-bar"] {
 .daily-forecasts {
   overflow: auto;
   white-space: nowrap;
-  margin-top: 24px;
 }
 
-.hourly-forecasts {
-  width: var(--section-width);
-}
-
-.hourly-card {
-  background-color: var(--bright-bg-clr);
-  width: 8%;
-  height: 150px;
-
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  border-radius: var(--card-border-radius);
-  padding: 10px;
-
-  & + .hourly-card {
-    margin-left: 16px;
-  }
-}
-
-.hourly-card > img.weather-icon,
-.daily-card > img.weather-icon {
-  aspect-ratio: 1/1;
-  height: 50px;
-}
-
+.hourly-card,
 .daily-card {
   background-color: var(--bright-bg-clr);
-  width: 8%;
+  width: 120px;
   height: 150px;
-
-  text-align: center;
 
   display: inline-flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 
   border-radius: var(--card-border-radius);
   padding: 10px;
+}
 
-  & + .daily-card {
-    margin-left: 16px;
-  }
+.hourly-card + .hourly-card,
+.daily-card + .daily-card {
+  margin-left: 16px;
+}
+
+.hourly-card img.weather-icon,
+.daily-card img.weather-icon {
+  width: 60px;
 }
 
 .today-highlights {
-  width: var(--section-width);
 }
 
 .today-highlights > .cards {
   display: grid;
-  grid-template-columns: 400px 400px 400px;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 300px 300px;
   gap: 1.6rem;
 }
@@ -312,7 +275,7 @@ label[for="search-bar"] {
 }
 
 #uv-chart {
-  --section-width: 330px;
+  --section-width: 300px;
   --section-height: calc(var(--section-width) / 2);
   --width-offset: 65px;
   --bar-width: calc(var(--section-width) - var(--width-offset));
@@ -325,7 +288,8 @@ label[for="search-bar"] {
   width: var(--section-width);
   height: var(--section-height);
   padding: 0;
-  margin: 0;
+  margin-top: 16px;
+  margin-inline: auto;
 
   overflow: hidden;
 
@@ -361,7 +325,7 @@ label[for="search-bar"] {
 /*The UV index number in the center of chart*/
 #uv-chart::after {
   content: attr(data-content);
-  font-size: 2.6rem;
+  font-size: 2rem;
   font-weight: bold;
   line-height: 1;
   color: var(--primary-font-clr);
@@ -397,7 +361,7 @@ label[for="search-bar"] {
 
 .index > span {
   position: absolute;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   left: 0.7rem;
   top: -15px;
   color: var(--secondary-font-clr);

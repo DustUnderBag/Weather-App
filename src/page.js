@@ -25,7 +25,7 @@ function displayCurrentConditions() {
 
   //Date and Location
   date.textContent = convertDatetime(todayData.datetime);
-  location.textContent = weatherData.address;
+  location.textContent = weatherData.resolvedAddress;
 
   //Weather icon
   fetchWeatherIcon(currentData.icon).then((icon) => (weatherIcon.src = icon));
