@@ -447,6 +447,7 @@ label[for="search-bar"] {
   grid-template-columns: auto auto;
   align-items: center;
   justify-content: start;
+  gap: 5px;
 }
 
 #wind-direction > .info-icon {
@@ -456,20 +457,24 @@ label[for="search-bar"] {
   background-position: center;
   width: 50px;
   height: 50px;
+  margin-left: -7px;
 }
 
 #sunrise,
 #sunset {
+  height: 50%;
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: min-content auto;
   align-items: center;
   gap: 1rem;
+
   & > img {
-    width: 100px;
+    width: 75px;
   }
 
   & > span {
     font-size: 2rem;
+    font-weight: bold;
   }
 }
