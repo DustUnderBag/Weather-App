@@ -2,7 +2,7 @@
   --bright-bg-clr: #ffffff;
   --grey-bg-clr: #f7f6f9;
 
-  --section-padding: 50px 50px;
+  --section-padding: 16px 50px;
 
   --primary-font-clr: #292929;
   --secondary-font-clr: #595959;
@@ -307,11 +307,6 @@ label[for="search-bar"] {
   font-size: 1.6rem;
 }
 
-.info-card img {
-  width: 100px;
-  aspect-ratio: 1 /1;
-}
-
 .info-card span {
   font-size: inherit;
 }
@@ -461,4 +456,20 @@ label[for="search-bar"] {
   background-position: center;
   width: 50px;
   height: 50px;
+}
+
+#sunrise,
+#sunset {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: min-content auto;
+  align-items: center;
+  gap: 1rem;
+  & > img {
+    width: 100px;
+  }
+
+  & > span {
+    font-size: 2rem;
+  }
 }

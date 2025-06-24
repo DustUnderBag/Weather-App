@@ -19,10 +19,10 @@ export function displayHighlights() {
   windDirection.textContent = getWindDirection(data.winddir);
 
   const sunrise = document.querySelector("#sunrise > span");
-  sunrise.textContent = data.sunrise;
+  sunrise.textContent = convertTime(data.sunrise);
 
   const sunset = document.querySelector("#sunset > span");
-  sunset.textContent = data.sunset;
+  sunset.textContent = convertTime(data.sunset);
 
   const humidity = document.querySelector("#humidity .number");
   humidity.textContent = data.humidity;
@@ -119,4 +119,21 @@ function getUVLevel(index) {
   if (index >= 6 && index <= 7) return "High";
   if (index >= 8 && index <= 9) return "Very High";
   else return "Extreme";
+}
+
+function convertTime(time) {
+  //Example: convert 19:02:30 -> 7:02 PM
+  let suffix = " AM";
+
+  let hour = Number(time.slice(0, 2));
+  if (hour > 12) {
+    hour -= 12;
+    suffix = " PM";
+  }
+
+  const minute = time.slice(3, 5);
+
+  const converted = hour + ":" + minute + suffix;
+  console.log(converted);
+  return converted;
 }
