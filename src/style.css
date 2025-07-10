@@ -789,6 +789,31 @@ label[for="search-bar"] {
     grid-template-rows: auto auto;
   }
 
+  .current-weather {
+    text-align: center;
+  }
+
+  img#current-weather-icon {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: -5vw;
+    margin-bottom: -12vw;
+  }
+
+  .all-temperatures {
+    margin-top: 5px;
+  }
+
+  #min-max-temperatures {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  #current-precipprob {
+    width: max-content;
+    margin-inline: auto;
+  }
+
   .detailed-forecasts {
     padding: 0 30px;
   }
