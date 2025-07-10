@@ -194,10 +194,11 @@ label[for="search-bar"] {
   }
 }
 
-.hourly-forecasts,
-.daily-forecasts {
-  overflow: auto;
+#hourly-cards,
+#daily-cards {
+  overflow-x: auto;
   white-space: nowrap;
+  padding-bottom: 5px;
 }
 
 .hourly-card,
@@ -821,7 +822,6 @@ label[for="search-bar"] {
   #hourly-cards,
   #daily-cards {
     display: flex;
-    flex-direction: column;
     align-items: center;
   }
 }
