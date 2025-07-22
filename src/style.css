@@ -161,9 +161,8 @@ label[for="search-bar"] {
   appearance: none;
 }
 
-#unit-switch label {
+#unit-switch > label {
   display: inline-flex;
-  text-align: center;
   justify-content: center;
   align-items: center;
 
@@ -183,6 +182,11 @@ label[for="search-bar"] {
   &:has(input[type="radio"]:hover) {
     border: 3px solid #292929;
   }
+}
+
+#unit-switch span {
+  text-align: center;
+  padding-top: 3px;
 }
 
 .hourly-forecasts,
@@ -821,6 +825,10 @@ label[for="search-bar"] {
 
   .detailed-forecasts {
     padding: 0 24px;
+  }
+
+  #unit-switch {
+    margin-top: 24px;
   }
 
   #hourly-cards,
