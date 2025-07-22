@@ -209,7 +209,7 @@ label[for="search-bar"] {
 .daily-card {
   background-color: var(--bright-bg-clr);
   min-width: 100px;
-  width: 5%;
+  width: 8%;
   height: 150px;
 
   display: inline-flex;
@@ -796,6 +796,7 @@ label[for="search-bar"] {
 
   .current-weather {
     text-align: center;
+    padding-bottom: 16px;
   }
 
   .current-weather #location {
