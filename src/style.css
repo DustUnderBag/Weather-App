@@ -28,6 +28,7 @@ body {
 
   display: grid;
   grid-template-columns: calc(185px + 7vw) minmax(0, 1fr);
+  position: relative;
 }
 
 .current-weather {
@@ -448,6 +449,17 @@ label[for="search-bar"] {
     font-size: 2rem;
     font-weight: bold;
   }
+}
+
+#loading-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  background-image: url(img/loading-screen.svg);
+  background-size: 40%;
+  background-position: 50% 35vh;
+  background-repeat: no-repeat;
 }
 
 @media only screen and (max-width: 1530px) {

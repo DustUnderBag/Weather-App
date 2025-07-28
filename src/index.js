@@ -7,6 +7,7 @@ import { getHourlyForecast } from "./hourly-forecast";
 import { getDailyForecasts } from "./daily-forecasts";
 import { displayHighlights } from "./highlights";
 
+const loadingOverlay = document.querySelector("#loading-overlay");
 console.log("Script entry point working");
 
 const search = document.querySelector("#search-bar");
@@ -15,9 +16,14 @@ search.addEventListener("keydown", search_handler);
 fetchAndDisplayWeather();
 
 function fetchAndDisplayWeather() {
+  loadingOverlay.style.display = "block";
+
   const location = search.value || "Toronto";
   fetchWeather(location).then((data) => {
-    if (data !== undefined) visualizeData();
+    if (data !== undefined) {
+      visualizeData();
+    }
+    loadingOverlay.style.display = "none";
   });
 }
 
