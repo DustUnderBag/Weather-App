@@ -34,18 +34,24 @@
 
 export let tempUnit = "C";
 export let weatherData;
-
 export async function fetchWeather(location) {
-  const key = "8UT7GXF3M33L57GR7VV2CNKCP";
-  const contentType = "json";
-  let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=us&key=${key}&contentType=${contentType}&elements=%2Baqius`;
+  try {
+    const key = "8UT7GXF3M33L57GR7VV2CNKCP";
+    const contentType = "json";
+    let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=us&key=${key}&contentType=${contentType}&elements=%2Baqius`;
 
-  const response = await fetch(url, {
-    method: "GET",
-  });
-  const json = await response.json();
-  console.log(json);
-  weatherData = json;
+    const response = await fetch(url, { method: "GET" });
+
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+
+    const json = await response.json();
+    weatherData = json;
+    return json;
+  } catch (error) {
+    alert(getErrorMessage(error.message));
+  }
 }
 
 export async function fetchWeatherIcon(iconName) {
@@ -58,4 +64,13 @@ export function updateTempUnit() {
     "#unit-switch input[type='radio']:checked",
   );
   tempUnit = chosenTempUnit.value;
+}
+
+function getErrorMessage(code) {
+  if (code === "400") return "Bad request: Invalid location.";
+  if (code === "401")
+    return "Unathorized: Invalid API key or account inactive/disabled";
+  if (code === "429") return "Too many requests: Queries exceeded your limit";
+  if (code === "500")
+    return "Server error: Servers encounter an expected error.";
 }

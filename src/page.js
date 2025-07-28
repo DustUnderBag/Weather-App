@@ -13,10 +13,6 @@ const maxTemperature = document.querySelector(".max-temperature");
 const minTemperature = document.querySelector(".min-temperature");
 
 export function displayData() {
-  displayCurrentConditions();
-}
-
-function displayCurrentConditions() {
   //Data at this moment
   const currentData = weatherData.currentConditions;
 

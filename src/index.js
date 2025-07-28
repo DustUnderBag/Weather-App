@@ -16,7 +16,9 @@ fetchAndDisplayWeather();
 
 function fetchAndDisplayWeather() {
   const location = search.value || "Toronto";
-  fetchWeather(location).then(visualizeData);
+  fetchWeather(location).then((data) => {
+    if (data !== undefined) visualizeData();
+  });
 }
 
 function visualizeData() {
