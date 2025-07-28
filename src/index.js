@@ -1,5 +1,7 @@
 import "./reset.css";
 import "./style.css";
+import "./uv.css";
+import "./loading-overlay.css";
 
 import { fetchWeather, tempUnit, updateTempUnit } from "./fetcher";
 import { displayData } from "./page";

@@ -1,0 +1,130 @@
+#uv-chart {
+  --section-width: 300px;
+  --section-height: calc(var(--section-width) / 2);
+  --width-offset: 65px;
+  --bar-width: calc(var(--section-width) - var(--width-offset));
+  --bar-height: calc(var(--section-height) - var(--width-offset) / 2);
+  --animation-duration: 0.1s;
+
+  --border-width: 40px;
+
+  position: relative;
+  width: var(--section-width);
+  height: var(--section-height);
+  padding: 0;
+  margin-inline: auto;
+
+  overflow: hidden;
+
+  justify-self: center;
+}
+
+#uv-chart + .sub-data {
+  text-align: center;
+  margin: 0;
+  margin-top: 24px;
+  line-height: 1;
+}
+
+#uv-chart::before,
+#uv-chart::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/*The chart*/
+#uv-chart::before {
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  border: var(--border-width) rgba(0, 0, 0, 0.089) solid;
+  border-bottom: none;
+  border-top-left-radius: 1000px;
+  border-top-right-radius: 1000px;
+}
+
+/*The UV index number in the center of chart*/
+#uv-chart::after {
+  content: attr(data-content);
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+  color: var(--primary-font-clr);
+}
+
+#uv-bar {
+  position: absolute;
+  top: 100%;
+  left: calc(var(--width-offset) / 2);
+  width: var(--bar-width);
+  height: var(--bar-height);
+
+  border: var(--border-width) solid;
+  border-top: none;
+  border-bottom-left-radius: var(--bar-height);
+  border-bottom-right-radius: var(--bar-height);
+  border-color: #ffbd5f;
+
+  transform-origin: 50% 0;
+
+  transform: rotate(0);
+  transition: transform 1.1s ease-in-out;
+}
+
+#uv-chart > .index {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: inherit;
+  height: inherit;
+  transform-origin: 50% 0;
+}
+
+.index > span {
+  position: absolute;
+  font-size: 1.2rem;
+  left: 0.7rem;
+  top: -15px;
+  color: var(--secondary-font-clr);
+}
+
+#index-0 > span {
+  top: -26px;
+  left: 15px;
+}
+
+#index-3 {
+  transform: rotate(54deg);
+
+  & > span {
+    transform: rotate(-54deg);
+  }
+}
+
+#index-5 {
+  transform: rotate(90deg);
+
+  & > span {
+    transform: rotate(-90deg);
+  }
+}
+
+#index-7 {
+  transform: rotate(126deg);
+
+  & > span {
+    transform: rotate(-126deg);
+  }
+}
+
+#index-10 {
+  transform: rotate(180deg);
+
+  & > span {
+    transform: rotate(-180deg);
+    top: -6px;
+    left: 5px;
+  }
+}
