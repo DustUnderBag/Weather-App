@@ -1,3 +1,17 @@
+.red-hat-display-normal {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.red-hat-display-bold {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
 :root {
   --bright-bg-clr: #ffffff;
   --grey-bg-clr: #f7f6f9;
@@ -15,11 +29,13 @@
 h2.description {
   color: var(--secondary-font-clr);
   line-height: 1;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
 }
 
 /*Grid Layout of whole page*/
 body {
+  font-family: "Red Hat Display", "Times New Roman", Times, serif;
   background-color: var(--grey-bg-clr);
   color: var(--primary-font-clr);
   min-width: 370px;
@@ -82,25 +98,27 @@ label[for="search-bar"] {
 }
 
 #current-weather-icon {
+  width: 75%;
   margin: -10px;
+  margin-inline: auto;
 }
 
 #current-condition {
   margin-top: 0px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: var(--secondary-font-clr);
 }
 
 .all-temperatures {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.75fr;
   grid-template-rows: 2fr 1fr;
   column-gap: 10px;
 }
 
 .all-temperatures .temperature {
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   font-weight: 800;
 }
 
@@ -194,7 +212,7 @@ label[for="search-bar"] {
 .daily-forecasts,
 .today-highlights {
   & > h1 {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     margin-top: 24px;
   }
 }
@@ -235,7 +253,7 @@ label[for="search-bar"] {
 
 .today-highlights > .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(340px, 1fr) 1fr 1fr;
   grid-template-rows: repeat(2, 300px);
   gap: 1.6rem;
   max-width: 1300px;
@@ -320,19 +338,7 @@ label[for="search-bar"] {
   }
 }
 
-@media only screen and (max-width: 1530px) {
-  #uv-chart {
-    --section-width: 260px;
-    --width-offset: 55px;
-    --border-width: 25px;
-  }
-
-  #uv-chart::after {
-    font-size: 2rem;
-  }
-}
-
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1350px) {
   .info-data span.number {
     font-size: 2.6rem;
   }
@@ -344,36 +350,6 @@ label[for="search-bar"] {
   #sun img {
     width: 60px;
   }
-
-  #uv-chart {
-    --section-width: 215px;
-    --width-offset: 55px;
-    --border-width: 22px;
-  }
-
-  #uv-chart::after {
-    font-size: 1.6rem;
-  }
-
-  #uv-chart + .sub-data {
-    font-size: 1.6rem;
-  }
-}
-
-@media only screen and (max-width: 1370px) {
-  #uv-chart {
-    --section-width: 225px;
-    --width-offset: 55px;
-    --border-width: 25px;
-  }
-
-  #uv-chart::after {
-    font-size: 1.6rem;
-  }
-
-  #uv-chart + .sub-data {
-    font-size: 1.6rem;
-  }
 }
 
 @media only screen and (max-width: 1250px) {
@@ -383,38 +359,6 @@ label[for="search-bar"] {
 
   .info-card {
     padding: 1.6rem 1.2rem;
-  }
-
-  #uv-chart {
-    --section-width: 210px;
-    --width-offset: 55px;
-    --border-width: 25px;
-  }
-
-  #uv-chart::after {
-    font-size: 1.4rem;
-  }
-
-  #uv-chart + .sub-data {
-    font-size: 1.2rem;
-  }
-
-  #uv-chart .index {
-    & > span {
-      font-size: 1.1rem;
-    }
-  }
-
-  #index-0 > span {
-    top: -23px;
-  }
-
-  #index-10 > span {
-    top: -5px;
-  }
-
-  .today-highlights > .cards {
-    grid-template-rows: repeat(2, 250px);
   }
 
   .info-data span.number {
@@ -435,59 +379,7 @@ label[for="search-bar"] {
   }
 }
 
-@media only screen and (max-width: 1200px) {
-  #uv-chart {
-    --section-width: 190px;
-    --width-offset: 50px;
-    --border-width: 25px;
-  }
-
-  #uv-chart::after {
-    font-size: 1.2rem;
-  }
-
-  #uv-chart + .sub-data {
-    font-size: 1.2rem;
-  }
-
-  #index-0 > span {
-    left: 12px;
-  }
-
-  #index-10 > span {
-    left: 5px;
-  }
-}
-
 @media only screen and (max-width: 1110px) {
-  #uv-chart {
-    --section-width: 175px;
-    --width-offset: 50px;
-    --border-width: 20px;
-  }
-
-  #uv-chart::after {
-    font-size: 1.2rem;
-  }
-
-  #uv-chart + .sub-data {
-    font-size: 1.2rem;
-  }
-
-  #uv-chart .index {
-    & > span {
-      font-size: 1rem;
-    }
-  }
-
-  #index-0 > span {
-    top: -23px;
-  }
-
-  #index-10 > span {
-    top: -5px;
-  }
-
   .info-card h2 {
     font-size: 1.3rem;
   }
@@ -507,36 +399,6 @@ label[for="search-bar"] {
     grid-template-rows: repeat(3, 250px);
   }
 
-  #uv-chart {
-    --section-width: 200px;
-    --width-offset: 55px;
-    --border-width: 25px;
-  }
-
-  #uv-chart::after {
-    font-size: 1.6rem;
-  }
-
-  #uv-chart + .sub-data {
-    font-size: 1.3rem;
-  }
-
-  #uv-chart .index {
-    & > span {
-      font-size: 1.2rem;
-    }
-  }
-
-  #index-0 > span {
-    top: -22px;
-    left: 9px;
-  }
-
-  #index-10 > span {
-    top: -5px;
-    left: 1px;
-  }
-
   .info-data span.number {
     font-size: 2.2rem;
 
@@ -547,20 +409,6 @@ label[for="search-bar"] {
 }
 
 @media only screen and (max-width: 925px) {
-  #uv-chart {
-    --section-width: 190px;
-    --width-offset: 50px;
-    --border-width: 23px;
-  }
-
-  #uv-chart::after {
-    font-size: 1.4rem;
-  }
-
-  #uv-chart + .sub-data {
-    font-size: 1.3rem;
-  }
-
   .all-temperatures .temperature {
     font-size: 2.2rem;
   }
@@ -570,24 +418,6 @@ label[for="search-bar"] {
   .today-highlights > .cards {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 250px);
-  }
-
-  .info-card#uv {
-    grid-column: 1 / 3;
-  }
-
-  #uv-chart {
-    --section-width: 250px;
-    --width-offset: 55px;
-    --border-width: 26px;
-  }
-
-  #uv-chart::after {
-    font-size: 1.6rem;
-  }
-
-  #uv-chart + .sub-data {
-    font-size: 1.3rem;
   }
 }
 
