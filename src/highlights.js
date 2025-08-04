@@ -7,7 +7,7 @@ export function displayHighlights() {
   uv.setAttribute("data-content", data.uvindex);
 
   const uvBar = document.querySelector("#uv-chart #uv-bar");
-  const rotateDeg = getUvBarRotateDeg(7);
+  const rotateDeg = getUvBarRotateDeg(data.uvindex);
   uvBar.style.transform = `rotate(${rotateDeg})`;
   const uvLevel = document.querySelector("#uv-chart + .sub-data");
   uvLevel.textContent = getUVLevel(data.uvindex);

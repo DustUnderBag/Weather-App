@@ -303,3 +303,28 @@
     font-size: 1.3rem;
   }
 }
+
+/*Mobile size*/
+@media only screen and (max-width: 650px) {
+  #uv-chart {
+    --section-width: 270px;
+    --size-offset: 55px;
+    --bar-thickness: 32px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #uv-chart {
+    --section-width: 220px;
+    --size-offset: 50px;
+    --bar-thickness: 23px;
+  }
+
+  #uv-chart::after {
+    font-size: 1.4rem;
+  }
+
+  #uv-chart + .sub-data {
+    font-size: 1.1rem;
+  }
+}
